@@ -1,0 +1,14 @@
+{
+	"Port": 13100,
+	"Address": "192.168.13.1",
+	"AgentUpdateInterval": 15,
+	"PeerUpdateInterval": 15,
+	"PeerCheckInterval": 5,
+	"MongoHost": "localhost",
+	"MongoDatabase": "Observatory",
+	"BootstrapPeers": [],
+	"UIFilePath": "C:\\Users\\Adrian\\Projects\\observatory-ui\\ui\\",
+	"UIWebPath": "ui",
+	"UIPort": 8000,
+	"AllowCors": "*"
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+for file in ui/theme/*.less
+do
+	lessc $file ui/theme/$(basename $file | sed -e "s/less/css/")
+done

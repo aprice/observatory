@@ -1,0 +1,9 @@
+{
+	"RootPath": "ui",
+	"OutputPath": "ui/embedded.go",
+	"BuildConstraints": "!dev",
+	"PackageName": "ui",
+	"DevOutputPath": "ui/embedded_dev.go",
+	"DevBuildConstraints": "dev",
+	"ExcludePattern": "(/\\.|^\\.|\\.go|.less$)"
+}

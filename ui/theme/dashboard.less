@@ -1,0 +1,129 @@
+@import (reference) "colors.less";
+@import (reference) "globals.less";
+
+/* Alert Rows */
+td.status i.fa {
+	width: 1em;
+	text-align: center;
+}
+
+tr.critical {
+	td.status,td.subjectName {
+		background-color: @criticalHighlight;
+	}
+	td.status {
+		color: @criticalText;
+		font-weight: bold;
+		i.fa {
+			font-weight: normal;
+		}
+	}
+}
+
+tr.warning {
+	td.status,td.subjectName {
+		background-color: @warningHighlight;
+	}
+	td.status i.fa {
+		color: @warningText;
+	}
+}
+
+tr.ok {
+	td.status,td.subjectName {
+		background-color: @okHighlight;
+	}
+	td.status {
+		color: @okText;
+	}
+}
+
+/* Role Status Graphs */
+.graphContainer {
+	display: inline-block;
+}
+
+.graphTitle {
+	font-family: @headerfont;
+	font-weight: normal;
+	text-align: center;
+	margin: 0 0 .2em 0;
+}
+
+.statusGraphSvg {
+	width: 8rem;
+	height: 8rem;
+}
+
+.uptimeGraphBg {
+	fill: #bbb;
+}
+
+.donutChart {
+	transform-origin: center;
+	fill: transparent;
+	stroke-width: 2;
+}
+
+.uptimeGraph {
+	stroke: @uptimeBar;
+}
+
+.statusGraphBg {
+	fill: #333;
+}
+
+.statusGraphOk {
+	stroke: @okBar;
+}
+
+.statusGraphWarn {
+	stroke: @warningBar;
+	stroke-width: 2;
+}
+
+.statusGraphCritical {
+	stroke: @criticalBar;
+}
+
+text.uptime {
+	background-color: #333;
+	fill: @uptimeTextLight;
+	font-size: 2.5pt;
+	text-anchor: middle;
+	border-radius: 2pt;
+}
+
+.uptimeTextBg {
+	fill: rgba(51, 51, 51, 0.5);
+}
+
+.nodeCountTotal {
+	font-size: 5pt;
+	fill: white;
+	text-anchor: middle;
+	font-family: @bodyfont;
+}
+
+.nodeCountStatus {
+	font-size: 3pt;
+	text-anchor: middle;
+	fill: white;
+	font-family: @bodyfont;
+}
+
+.nodeCountStatus .ok {
+	fill: @okTextLight;
+}
+
+.nodeCountStatus .warn {
+	fill: @warningTextLight;
+}
+
+.nodeCountStatus .critical {
+	fill: @criticalTextLight;
+}
+
+.graphContainer:hover {
+		text-shadow: #fff 0px 0px 5px;
+}

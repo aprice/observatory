@@ -1,0 +1,63 @@
+@import (reference) "colors.less";
+@import (reference) "globals.less";
+
+#MainBody {
+	display: none;
+}
+
+#LoadingBody {
+	width: 88vw;
+	max-width: 92rem;
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: .5rem;
+	margin-left: 11vw;
+	h1 {
+		font-family: @headerfont;
+		font-weight: 200;
+		color: #666;
+		font-size: 42pt;
+		text-align: center;
+		i.fa {
+			color: #333;
+			font-size: 85%;
+		}
+		.c1 {
+			animation: 4s ease 0s infinite normal loading_anim;
+		}
+		.c2 {
+			animation: 4s ease 0.5s infinite normal loading_anim;
+		}
+		.c3 {
+			animation: 4s ease 1s infinite normal loading_anim;
+		}
+		.c4 {
+			animation: 4s ease 1.5s infinite normal loading_anim;
+		}
+		.c5 {
+			animation: 4s ease 2s infinite normal loading_anim;
+		}
+		.c6 {
+			animation: 4s ease 2.5s infinite normal loading_anim;
+		}
+		.c7 {
+			animation: 4s ease 3s infinite normal loading_anim;
+		}
+		.c8 {
+			animation: 4s ease 3.5s infinite normal loading_anim;
+		}
+		.c9 {
+			animation: 4s ease 4s infinite normal loading_anim;
+		}
+		.c10 {
+			animation: 4s ease 4.5s infinite normal loading_anim;
+		}
+	}
+}
+
+@keyframes loading_anim {
+  0% { color: #666 }
+  20% { color: #000 }
+  40% { color: #666 }
+  100% { color: #666 }
+}

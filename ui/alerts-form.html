@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Observatory - Alert Editor</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic|Work+Sans:400,300,200,700" rel="stylesheet" type="text/css" />
+	<link  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="theme/main.css" rel="stylesheet" type="text/css" />
+	<link href="theme/small-screen.css" rel="stylesheet" media="(max-width: 65rem)" type="text/css" />
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+	<script src="config.js" type="text/javascript"></script>
+	<script src="js/version.js" type="text/javascript"></script>
+	<script src="js/global.js" type="text/javascript"></script>
+	<script src="js/nav.js" type="text/javascript"></script>
+	<script src="js/alerts.js" type="text/javascript"></script>
+</head>
+<body>
+	<header>
+		<h1 id="SiteTitle">Observatory</h1>
+		<h2 id="PageTitle">Alert Editor</h2>
+		<i id="NavClose" class="fa fa-close"></i>
+		<i id="NavBurger" class="fa fa-navicon"></i>
+	</header>
+	<nav id="MainNav">
+		<ul>
+			<li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+			<li><a href="subjects.html"><i class="fa fa-server"></i> Subjects</a></li>
+			<li><a href="checks.html"><i class="fa fa-heartbeat"></i> Checks</a></li>
+			<li><a href="alerts.html"><i class="fa fa-bullhorn"></i> Alerts</a></li>
+			<li><a href="periods.html"><i class="fa fa-clock-o"></i> Periods</a></li>
+			<li><a href="system.html"><i class="fa fa-wrench"></i> System</a></li>
+		</ul>
+	</nav>
+	<section id="LoadingBody" class="bodyPanel">
+		<h1><i class="fa fa-refresh fa-spin fa-fw"></i> <span class="c1">L</span><span class="c2">o</span><span class="c3">a</span><span class="c4">d</span><span class="c5">i</span><span class="c6">n</span><span class="c7">g</span><span class="c8">.</span><span class="c9">.</span><span class="c10">.</span></h1>
+	</section>
+	<div id="ErrorBody" class="bodyPanel"><i class="fa fa-warning"></i><span class="bodyText"></span></div>
+	<div id="SuccessBody" class="bodyPanel"><i class="fa fa-check-circle"></i><span class="bodyText"></span></div>
+	<section id="MainBody" class="bodyPanel">
+		<div>
+			<form id="AlertForm" onsubmit="return false;">
+				<input type="hidden" name="ID" id="IDField"/>
+				<p>
+					<label>Name</label>
+					<input type="text" name="Name" class="include" id="NameField" required/>
+				</p>
+				<p>
+					<label>Type</label>
+					<select name="Type" class="include number" id="TypeField">
+						<option value="1">Executable</option>
+						<option value="2">Email</option>
+					</select>
+				</p>
+				<!-- Executable -->
+				<p class="parameter type1">
+					<label>Command</label>
+					<input type="text" name="Parameters.command" class="conditionalInclude typeRequired" id="CommandField"/>
+				</p>
+				<!-- Email -->
+				<p class="parameter type2">
+					<label>Recipients</label>
+					<input type="text" name="Parameters.to" class="conditionalInclude typeRequired" id="RecipientsField"/>
+				</p>
+				<p class="parameter type2">
+					<label>Subject</label>
+					<input type="text" name="Parameters.subject" class="conditionalInclude typeRequired" id="SubjectField"/>
+				</p>
+				<p class="parameter type2">
+					<label>Body</label>
+					<input type="text" name="Parameters.body" class="conditionalInclude typeRequired" id="BodyField"/>
+				</p>
+				<!-- General -->
+				<p>
+					<label>Threshold</label>
+					<select name="Threshold" class="include" id="IntervalField">
+						<option value="1" selected="selected">Warning</option>
+						<option value="2">Critical</option>
+					</select>
+				</p>
+				<p>
+					<label>Reminder Interval</label>
+					<input type="number" name="ReminderInterval" class="include" id="ReminderField" min="0"/> minutes
+				</p>
+				<h4 class="fieldHeader">Roles</h4>
+				<p>
+					<label>New Role</label>
+					<input type="text" name="newRole" id="NewRoleField" pattern="[^, ]*"/>
+					<button id="NewRoleButton">Add</button>
+				</p>
+				<p>
+					<label>Add Role</label>
+					<select name="addRole" id="RolesSelect"></select>
+					<button id="AddRoleButton">Add</button></p>
+				</p>
+				<div class="labelFieldPair">
+					<label>Roles</label>
+					<ul id="RoleList">
+					</ul>
+				</div>
+				<h4 class="fieldHeader">Tags</h4>
+				<p>
+					<label>New Tag</label>
+					<input type="text" name="newTag" id="NewTagField" pattern="[^, ]*"/>
+					<button id="NewTagButton">Add</button>
+				</p>
+				<p>
+					<label>Add Tag</label>
+					<select name="addTag" id="TagsSelect"></select>
+					<button id="AddTagButton">Add</button></p>
+				</p>
+				<div class="labelFieldPair">
+					<label>Tags</label>
+					<ul id="TagList">
+					</ul>
+				</div>
+				<div>
+					<button id="SaveButton" class="majorButton">Save</button>
+					<button id="DeleteButton">Delete Alert</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<span id="Copyright"><a href="https://github.com/aprice/observatory" target="_blank">Observatory</a></span>
+		<i class="fa fa-heartbeat"></i>
+		<span id="UiVersion">Observatory UI</span>
+		<i class="fa fa-heartbeat"></i>
+		<span id="CoordVersion">Not Connected</span>
+	</footer>
+	<section id="Template">
+		<ul id="RoleLine">
+			<li><span class="roleName"></span><i class="fa fa-ban removeRole"></i><input type="hidden" name="Roles" class="include array"/></li>
+		</ul>
+		<ul id="TagLine">
+			<li><span class="tagName"></span><i class="fa fa-ban removeTag"></i><input type="hidden" name="Tags" class="include array"/></li>
+		</ul>
+	</section>
+</body>
+</html>

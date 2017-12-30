@@ -1,0 +1,118 @@
+@import (reference) "colors.less";
+
+body {
+	background-image: none;
+}
+
+#SiteTitle {
+	font-size: 36pt;
+	font-weight: 300;
+	width: auto;
+	height: 4rem;
+	line-height: 4rem;
+	display: block;
+	background-image: none;
+}
+
+#PageTitle {
+	font-size: 30pt;
+	font-weight: 300;
+	text-align: center;
+	width: auto;
+	height: 4rem;
+	line-height: 4rem;
+	position: initial;
+	display: block;
+	padding: 0 .5rem;
+}
+
+header i.fa {
+	font-size: 24pt;
+	height: 4rem;
+	line-height: 4rem;
+	position: absolute;
+	top: 4rem;
+	right: 1rem;
+}
+
+#NavBurger {
+	display: inline-block;
+}
+
+#MainBody {
+	width: 100%;
+	min-width: auto;
+	max-width: none;
+	margin-left: 0;
+	display: block;
+}
+
+nav {
+	box-sizing: border-box;
+	width: 16rem;
+	height: auto;
+	padding: 8rem 0 .5rem 0;
+	position: absolute;
+	left: auto;
+	right: 0;
+	top: 0;
+	display: none;
+
+	background-color: @color-primary-2;
+
+	ul li {
+		font-size: 22pt;
+		text-align: right;
+		box-sizing: border-box;
+		width: 100%;
+		padding-right: .5rem;
+		i.fa {
+			float: right;
+			width: 2em;
+			text-align: center;
+		}
+		clear: both;
+	}
+}
+
+body, p, td, th, input, select {
+	font-size: 20pt;
+}
+
+footer {
+	margin: 5rem 0 0 0;
+	width: 100vw;
+	z-index: auto;
+	i.fa {
+		display: none;
+	}
+	span {
+		display: block;
+	}
+}
+
+/* Dashboard */
+#CheckResultsTable {
+	th .fullTitle {
+		display: none;
+	}
+
+	td.status .statusText {
+		display: none;
+	}
+
+	th.roles, td.roles, th.tags, td.tags {
+		display: none;
+	}
+}
+
+#GraphsContainer {
+	.graphTitle {
+		font-size: 24pt;
+	}
+
+	.statusGraphSvg {
+		width: 25vw;
+		height: 25vw;
+	}
+}

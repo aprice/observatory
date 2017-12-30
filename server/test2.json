@@ -1,0 +1,8 @@
+{
+	"Port": 13101,
+	"Address": "192.168.13.1",
+	"AgentUpdateInterval": 15,
+	"PeerUpdateInterval": 15,
+	"PeerCheckInterval": 5,
+	"BootstrapPeers": ["192.168.13.1:13100"]
+}

@@ -1,0 +1,24 @@
+@import (reference) "colors.less";
+@import (reference) "globals.less";
+
+
+.expired .duration {
+	background-color: @color-secondary-1-1;
+	.endTime::after {
+		content: " (Expired)"
+	}
+}
+
+.planned .duration {
+	background-color: @color-complement-1;
+	.endTime::after {
+		content: " (Planned)"
+	}
+}
+
+.active .duration {
+	background-color: @color-secondary-2-1;
+	.endTime::after {
+		content: " (Active)"
+	}
+}
